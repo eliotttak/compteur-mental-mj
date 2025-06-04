@@ -16,8 +16,28 @@ function createConnectCode () {
     }
     return createConnectCode_result
 }
+radio.onReceivedValue(function (name, value) {
+    if (executionStatus == "waiting_for_players") {
+        if (name == "r_login" && value == parseFloat(connectCode)) {
+            players.push(radio.receivedPacket(RadioPacketProperty.SerialNumber))
+            basic.clearScreen()
+            basic.pause(50)
+            showConnectCode(connectCode)
+            // SERIAL + "." + PLAYER_NUMBER :
+            // 
+            // E.G. 12345678.3 FOR BE CONVERTED INTO NUMBER
+            radio.sendValue("accepted", parseFloat("" + radio.receivedPacket(RadioPacketProperty.SerialNumber) + "." + players.length))
+        }
+    }
+})
 let createConnectCode_result = ""
 let showConnectCode_y = 0
 let showConnectCode_x = 0
-let executionStatus = "waiting_for_players"
-showConnectCode(createConnectCode())
+let connectCode = ""
+let executionStatus = ""
+let players: number[] = []
+radio.setGroup(1)
+players = []
+executionStatus = "waiting_for_players"
+connectCode = createConnectCode()
+showConnectCode(connectCode)
