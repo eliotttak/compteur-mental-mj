@@ -32,7 +32,7 @@ radio.onReceivedValue(function (name, value) {
             // SERIAL + "." + PLAYER_NUMBER :
             // 
             // E.G. 12345678.3 FOR BE CONVERTED INTO NUMBER
-            radio.sendValue("accepted", parseFloat("" + radio.receivedPacket(RadioPacketProperty.SerialNumber) + "." + players.length))
+            radio.sendString("accepted:" + radio.receivedPacket(RadioPacketProperty.SerialNumber) + ":" + players.length)
         }
     }
 })
