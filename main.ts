@@ -16,6 +16,12 @@ function createConnectCode () {
     }
     return createConnectCode_result
 }
+input.onButtonPressed(Button.AB, function () {
+    if (executionStatus == "waiting_for_players" && players.length >= 2) {
+        basic.clearScreen()
+        executionStatus = ""
+    }
+})
 radio.onReceivedValue(function (name, value) {
     if (executionStatus == "waiting_for_players") {
         if (name == "r_login" && value == parseFloat(connectCode)) {
