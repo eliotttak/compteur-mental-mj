@@ -9,7 +9,6 @@
     "files": [
         "main.blocks",
         "main.ts",
-        "README.md",
         "_locales/fr/README.md",
         "_locales/en/README.md"
     ],

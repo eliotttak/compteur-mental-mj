@@ -15,7 +15,7 @@ This repository can be used as **extension** in MakeCode.
 Edit this repository in MakeCode.
 
 * Open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* Click **Import** then click **Import URL **
+* Click **Import** then click **Import URL**
 * Paste **https://github.com/eliotttak/compteur-mental-mj** and click "Import"
 
 #### Metadata (used for search and rendering)

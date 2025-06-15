@@ -15,7 +15,7 @@ Ce dépôt peut être ajouté en tant qu'**extension** dans MakeCode.
 Éditer ce dépôt dans MakeCode.
 
 * ouvrir [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* cliquez sur **Importer** puis cliquez sur **Importer l'URL **
+* cliquez sur **Importer** puis cliquez sur **Importer l'URL**
 * collez **https://github.com/eliotttak/compteur-mental-mj** et cliquez sur importer
 
 #### Métadonnées (utilisées pour la recherche, le rendu)
