@@ -22,26 +22,42 @@ input.onButtonPressed(Button.AB, function () {
         executionStatus = ""
     }
 })
-radio.onReceivedValue(function (name, value) {
+radio.onReceivedString(function (value) {
+    arrayValue = value.split(":")
+    name = arrayValue[0]
     if (executionStatus == "waiting_for_players") {
-        if (name == "r_login" && value == parseFloat(connectCode)) {
-            players.push(radio.receivedPacket(RadioPacketProperty.SerialNumber))
+        if (name == "l" && arrayValue[1] == connectCode) {
+            if (!(includes(players, arrayValue[2]))) {
+                players.push(arrayValue[2])
+            }
             basic.clearScreen()
             basic.pause(50)
             showConnectCode(connectCode)
-            // SERIAL + "." + PLAYER_NUMBER :
+            // accpted:SERIAL:PLAYER_NUMBER :
             // 
-            // E.G. 12345678.3 FOR BE CONVERTED INTO NUMBER
-            radio.sendString("accepted:" + radio.receivedPacket(RadioPacketProperty.SerialNumber) + ":" + players.length)
+            // E.G. accepted:12345678:3
+            radio.sendString("acc:" + arrayValue[2] + ":" + players.indexOf(arrayValue[2]))
         }
     }
 })
+let name = ""
 let createConnectCode_result = ""
 let showConnectCode_y = 0
 let showConnectCode_x = 0
 let connectCode = ""
 let executionStatus = ""
-let players: number[] = []
+let players: string[] = []
+let arrayValue: string[] = []
+function forEach<T>(a: Array<T>, callback: (element : T, index : number) => any) {
+    for (let index = 0; index < a.length; index++) {
+        callback(a[index], index)
+    }
+}
+function includes<T>(a: Array<T>, element: T) {
+    let found = false
+    forEach<T>(a, e => {if (e === element) found = true})
+    return found
+}
 radio.setGroup(1)
 players = []
 executionStatus = "waiting_for_players"
