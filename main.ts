@@ -36,7 +36,7 @@ radio.onReceivedString(function (value) {
             // accpted:SERIAL:PLAYER_NUMBER :
             // 
             // E.G. accepted:12345678:3
-            radio.sendString("acc:" + arrayValue[2] + ":" + players.indexOf(arrayValue[2]))
+            radio.sendString("acc:" + arrayValue[2] + ":" + players.indexOf(arrayValue[2]) + 1)
         }
     }
 })
