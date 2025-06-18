@@ -33,9 +33,9 @@ radio.onReceivedString(function (value) {
             basic.clearScreen()
             basic.pause(50)
             showConnectCode(connectCode)
-            // accpted:SERIAL:PLAYER_NUMBER :
+            // acc:SERIAL:PLAYER_NUMBER :
             // 
-            // E.G. accepted:12345678:3
+            // E.G. acc:12345678:3
             radio.sendString("acc:" + arrayValue[2] + ":" + players.indexOf(arrayValue[2]) + 1)
         }
     }
@@ -53,11 +53,8 @@ function forEach<T>(a: Array<T>, callback: (element : T, index : number) => any)
         callback(a[index], index)
     }
 }
-function includes<T>(a: Array<T>, element: T) {
-    let found = false
-    forEach<T>(a, e => {if (e === element) found = true})
-    return found
-}
+const includes = <T>(array: Array<T>, element: T) => array.indexOf(element) !== -1
+
 radio.setGroup(1)
 players = []
 executionStatus = "waiting_for_players"
