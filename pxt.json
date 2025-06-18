@@ -8,9 +8,7 @@
     },
     "files": [
         "main.blocks",
-        "main.ts",
-        "_locales/fr/README.md",
-        "_locales/en/README.md"
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"
