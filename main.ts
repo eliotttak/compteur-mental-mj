@@ -19,7 +19,7 @@ function createConnectCode () {
 input.onButtonPressed(Button.AB, function () {
     if (executionStatus == "waiting_for_players" && players.length >= 2) {
         basic.clearScreen()
-        executionStatus = ""
+        executionStatus = "sending_duration"
     }
 })
 radio.onReceivedString(function (value) {
@@ -40,6 +40,8 @@ radio.onReceivedString(function (value) {
         }
     }
 })
+
+let graphDuration: number = randint(2500, 7500)
 let name = ""
 let createConnectCode_result = ""
 let showConnectCode_y = 0
